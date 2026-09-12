@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        title #{pageTitle}
+        
+        //- Các thẻ link phải nằm thụt lề vào trong thẻ head
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css", integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB", crossorigin="anonymous")
+        link(rel="stylesheet", href="/css/style.css")
+
+        link(rel="stylesheet", href="/admin/css/style.css")
+
+    body
+    
+        include ../partials/header.pug
+
+        .body
+            include ../partials/sider.pug
+
+            .main 
+                block main
+
+        //- Khuyến nghị thêm dấu phẩy giữa các thuộc tính để code Pug rõ ràng hơn
+        script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js", integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r", crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js", integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y", crossorigin="anonymous")
+        
+        
+        script(src="/admin/js/script.js")

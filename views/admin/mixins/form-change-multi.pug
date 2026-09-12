@@ -1,0 +1,23 @@
+mixin form-change-multi(path)
+  form(
+    action=path 
+    method="POST"
+    form-change-multi
+  )
+    .d-flex.align-items-start
+      .form-group
+        select(name="type" class="form-control")
+          option(disable selected) --Chon hanh dong--
+          option(value="active") Hoạt động
+          option(value="inactive") Dừng hoạt động
+          option(value="delete-all") Xoa tat ca
+          option(value="change-position") Thay doi vi tri
+
+      .form-group
+        input(
+          type="text"
+          name="ids"
+          value=""
+          class="form-control d-none"
+        )
+      button(type="submit" class="btn btn-primary") Áp dụng      

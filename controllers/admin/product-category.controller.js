@@ -1,26 +1,38 @@
 const ProductCategory = require('../../models/product-category.model');
 const systemConfig = require('../../config/system');
+const createTreeHelper = require("../../helpers/createTree")
+
 
 //[GET] /admin/products-category
 module.exports.index = async (req, res) => {
     let find = {
         delete: false,
     };
-
+    
     const records = await ProductCategory.find(find);
+    const newRecords = createTreeHelper.tree(records);
     res.render('admin/pages/products-category/index', {
         pageTitle: 'Danh sach danh muc san pham',
-        records: records
+        records: newRecords
 
     });
 }
 
-//[GET] /admin/products-category
+//[GET] /admin/products-category/create
 module.exports.create = async (req, res) => {
+    let find = {
+        delete: false
+    };
+
+    const records = await ProductCategory.find(find);
+
+    const newRecords = createTreeHelper.tree(records);
+
     res.render('admin/pages/products-category/create', {
         pageTitle: 'Tao moi danh muc san pham',
+        records: newRecords
     });
-}
+};
 
 //[POST] /admin/products-category/create
 module.exports.createPost = async (req, res) => {
